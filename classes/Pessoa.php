@@ -8,23 +8,21 @@ class Pessoa
     public $id;
     public $nomeCompleto;
     public $dataNascimento;
-    public $genero;
-    public $estadoCivil;
+    public $genero; //FALTA
+    public $estadoCivil; //FALTA
 
     // -----------------------------
     // Documentos
     // -----------------------------
-    public $cpf;
-    public $rg;
-    public $orgaoEmissor;
-    public $dataEmissaoRg;
+    public $cpf; //FALTA
+    public $rg; //FALTA
 
     // -----------------------------
     // Contato
     // -----------------------------
-    public $email;
-    public $telefone;
-    public $celular;
+    public $email; //FALTA
+    public $telefone; //FALTA
+    public $celular; //FALTA
 
     // -----------------------------
     // Endereço
@@ -46,20 +44,6 @@ class Pessoa
     public $peso;
     public $tipoSanguineo;
 
-    // -----------------------------
-    // Informações profissionais
-    // -----------------------------
-    public $profissao;
-    public $salario;
-    public $empresaAtual;
-
-    // -----------------------------
-    // Preferências pessoais
-    // -----------------------------
-    public $hobbies = [];
-    public $idiomas = [];
-    public $restricoesAlimentares = [];
-    public $alergias = [];
 
     // -----------------------------
     // Histórico
