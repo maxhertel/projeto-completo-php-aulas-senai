@@ -1,4 +1,11 @@
-<?php include '../includes/header.php'; ?>
+<?php include '../includes/header.php'; 
+
+session_start();
+if (isset($_SESSION['ok'])) {
+    echo "<p style='color:red'>" . $_SESSION['erro'] . "</p>";
+
+}
+?>
 
 <div class="container mt-5">
     <h2 class="mb-4 text-center">Cadastrar Pessoa</h2>
@@ -12,7 +19,7 @@
 
         <div class="col-md-6">
             <label for="dataNascimento" class="form-label">Data de Nascimento</label>
-            <input type="date" class="form-control" id="dataNascimento" name="endereco[dataNascimento]" required>
+            <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" required>
         </div>
 
         <div class="col-md-6">
@@ -90,6 +97,16 @@
                 <option value="D">Divorciado</option>
                 <option value="V">Viúvo</option>
             </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="rg" class="form-label">peso</label>
+            <input type="text" class="form-control" id="rg" name="peso">
+        </div>
+
+        <div class="col-md-4">
+            <label for="rg" class="form-label">altura</label>
+            <input type="text" class="form-control" id="rg" name="altura">
         </div>
 
         <div class="col-12 text-end">
