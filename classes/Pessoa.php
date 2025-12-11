@@ -2,6 +2,47 @@
 
 class Pessoa
 {
+
+    public function __construct(
+    $id,
+    $nomeCompleto,
+    $dataNascimento,
+    $email,
+    $genero = null,
+    $estadoCivil = null,
+    $cpf = null,
+    $rg = null,
+    $telefone = null,
+    $celular = null,
+    $altura = null,
+    $peso = null,
+    $tipoSanguineo = null,
+    $endereco = []
+) {
+    // Dados básicos
+    $this->id = $id;
+    $this->nomeCompleto = $nomeCompleto;
+    $this->dataNascimento = $dataNascimento;
+    $this->email = $email;
+
+    // Campos opcionais
+    $this->genero = $genero;
+    $this->estadoCivil = $estadoCivil;
+    $this->cpf = $cpf;
+    $this->rg = $rg;
+    $this->telefone = $telefone;
+    $this->celular = $celular;
+    $this->altura = $altura;
+    $this->peso = $peso;
+    $this->tipoSanguineo = $tipoSanguineo;
+
+    // Endereço (faz merge com padrão)
+    $this->endereco = array_merge($this->endereco, $endereco);
+
+    // Datas do sistema
+    $this->dataCadastro = date('Y-m-d H:i:s');
+    $this->ultimaAtualizacao = date('Y-m-d H:i:s');
+}
     // -----------------------------
     // Dados pessoais básicos
     // -----------------------------
@@ -52,19 +93,7 @@ class Pessoa
     public $ultimaAtualizacao;
 
 
-    // -----------------------------
-    // CONSTRUTOR
-    // -----------------------------
-    public function __construct($id, $nomeCompleto, $dataNascimento, $email)
-    {
-        $this->id = $id;
-        $this->nomeCompleto = $nomeCompleto;
-        $this->dataNascimento = $dataNascimento;
-        $this->email = $email;
 
-        $this->dataCadastro = date('Y-m-d H:i:s');
-        $this->ultimaAtualizacao = date('Y-m-d H:i:s');
-    }
 
     // -----------------------------
     // MÉTODOS AUXILIARES

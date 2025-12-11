@@ -12,5 +12,5 @@
     </head>
     <body class="bg-light">
 <?php
-    include './includes/menu.php'
+    include 'menu.php'
 ?>
