@@ -21,7 +21,16 @@ if (file_exists($caminho)) {
     //fecha o arquivo
     fclose($arquivo);
 }
-
+$pessoasExibir = 0;
+if($_GET){
+    
+    foreach ($pessoas as $key => $pessoa) {
+        if( $_GET['pessoaID'] == $pessoa[0]){
+            $pessoasExibir = $pessoa;
+        }
+    }
+    var_dump($pessoasExibir);
+}
 ?>
 <div class="card">
     <div class="card-body">
