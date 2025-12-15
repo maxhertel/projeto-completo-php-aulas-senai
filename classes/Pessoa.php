@@ -227,7 +227,7 @@ class Pessoa
     public function atualizarcsv($pessoaID)
     {
 
-        var_dump($pessoaID);
+        
         // Caminho do arquivo CSV onde os dados estão armazenados
         $arquivo = '../banco/pessoas.csv';
 
