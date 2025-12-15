@@ -223,4 +223,81 @@ class Pessoa
 
         return true;
     }
+    //
+    public function ataulizarcsv($pessoaID)
+    {
+        $arquivo = '../banco/pessoas.csv';
+
+        // Se o arquivo não existir, cria com cabeçalho
+        if (!file_exists($arquivo)) {
+
+            $cabecalho = [
+                'id',
+                'nomeCompleto',
+                'dataNascimento',
+                'genero',
+                'estadoCivil',
+                'cpf',
+                'rg',
+                'email',
+                'telefone',
+                'celular',
+                'altura',
+                'peso',
+                'rua',
+                'numero',
+                'bairro',
+                'cidade',
+                'estado',
+                'cep',
+                'complemento',
+                'dataCadastro',
+                'ultimaAtualizacao'
+            ];
+
+            $arquivoHandle = fopen($arquivo, 'a');
+            fputcsv($arquivoHandle, $cabecalho, ';');
+            fclose($arquivoHandle);
+        }
+
+        // Abrir arquivo para Append
+        $arquivoHandle = fopen($arquivo, 'a');
+
+        // Linha seguindo a ordem do construtor
+        $linha = [
+            $$pessoaID,
+            $this->nomeCompleto,
+            $this->dataNascimento,
+            $this->genero,
+            $this->estadoCivil,
+            $this->cpf,
+            $this->rg,
+            $this->email,
+            $this->telefone,
+            $this->celular,
+            $this->altura,
+            $this->peso,
+
+            // Endereço desmembrado
+            $this->endereco['rua'] ?? '',
+            $this->endereco['numero'] ?? '',
+            $this->endereco['bairro'] ?? '',
+            $this->endereco['cidade'] ?? '',
+            $this->endereco['estado'] ?? '',
+            $this->endereco['cep'] ?? '',
+            $this->endereco['complemento'] ?? '',
+
+            // Datas automáticas
+            $this->dataCadastro,
+            $this->ultimaAtualizacao
+        ];
+
+        // Percorrer o arquico
+        // encontrar linha com ID igual ao pessoaID
+        //substituir a linha pelos novos dados
+        //fputcsv($arquivoHandle, $linha, ';');
+        fclose($arquivoHandle);
+
+        return true;
+    }
 }

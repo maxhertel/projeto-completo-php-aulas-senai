@@ -5,6 +5,26 @@ if (isset($_SESSION['ok'])) {
     echo "<p style='color:red'>" . $_SESSION['erro'] . "</p>";
 
 }
+
+
+// define que o caminho e igual a banco de dados
+$caminho = '../banco/estados.csv';
+//pessoas igual a dados cadastrados
+$estados = [];
+//verifica se existe o arquivo
+if (file_exists($caminho)) {
+    //abre o arquvo
+    $arquivo = fopen($caminho, 'r');
+    //organiza o arquivo
+    //percorre a linha
+    while (($linha = fgetcsv($arquivo, 0, ';')) !== false) {
+        
+        $estados[] = $linha;
+
+    }
+    //fecha o arquivo
+    fclose($arquivo);
+}
 ?>
 
 <div class="container mt-5">
@@ -45,10 +65,11 @@ if (isset($_SESSION['ok'])) {
         <div class="col-md-6">
             <label for="estado" class="form-label">Estado</label>
             <select id="estado" name="estado" class="form-select" required>
-                <option value="" selected>Selecione...</option>
-                <option value="PR">Paraná</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
+               <?php
+                    foreach ($estados as $key => $estado) {
+                       echo "<option value='$estado[1]'>$estado[2]</option>";
+                    }
+                ?>
                 <!-- mantenha os outros estados -->
             </select>
         </div>

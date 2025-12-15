@@ -7,7 +7,8 @@ $dataNascimento = new DateTime($_POST['dataNascimento']);
 $hoje = new DateTime();
 $idade = $hoje->diff($dataNascimento)->y;
 
-
+var_dump($_POST);
+exit;
     $pessoa = new Pessoa(
         $_POST['nomeCompleto'],     // 1
         $_POST['id'],               // 2
@@ -23,7 +24,7 @@ $idade = $hoje->diff($dataNascimento)->y;
         $_POST['peso'],             // 12
         $_POST['endereco']          // 13
     );
-    $pessoa->salvarcsv();
+    $pessoa->ataulizarcsv($_POST['id']);
 
 
 header("Location: /paginas/cadastrar.php");
