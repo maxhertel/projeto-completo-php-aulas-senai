@@ -42,48 +42,7 @@ if (file_exists($caminho)) {
             <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" required>
         </div>
 
-        <div class="col-md-6">
-            <label for="rua" class="form-label">Endereço</label>
-            <input type="text" class="form-control" id="rua" name="endereco[rua]" placeholder="Rua..." required>
-        </div>
-
-        <div class="col-md-3">
-            <label for="numero" class="form-label">Número</label>
-            <input type="text" class="form-control" id="numero" name="endereco[numero]" required>
-        </div>
-
-        <div class="col-md-3">
-            <label for="cep" class="form-label">CEP</label>
-            <input type="text" class="form-control" id="cep" name="endereco[cep]" required>
-        </div>
-
-        <div class="col-md-6">
-            <label for="cidade" class="form-label">Cidade</label>
-            <input type="text" class="form-control" id="cidade" name="endereco[cidade]" required>
-        </div>
-
-        <div class="col-md-6">
-            <label for="estado" class="form-label">Estado</label>
-            <select id="estado" name="estado" class="form-select" required>
-               <?php
-                    foreach ($estados as $key => $estado) {
-                       echo "<option value='$estado[1]'>$estado[2]</option>";
-                    }
-                ?>
-                <!-- mantenha os outros estados -->
-            </select>
-        </div>
-
-        <div class="col-md-4">
-            <label for="telefone" class="form-label">Telefone</label>
-            <input type="text" class="form-control" id="telefone" name="telefone">
-        </div>
-
-        <div class="col-md-4">
-            <label for="celular" class="form-label">Celular</label>
-            <input type="text" class="form-control" id="celular" name="celular" required>
-        </div>
-
+      
         <div class="col-md-4">
             <label for="email" class="form-label">E-mail</label>
             <input type="email" class="form-control" id="email" name="email" required>
@@ -92,42 +51,6 @@ if (file_exists($caminho)) {
         <div class="col-md-4">
             <label for="cpf" class="form-label">CPF</label>
             <input type="text" class="form-control" id="cpf" name="cpf" required>
-        </div>
-
-        <div class="col-md-4">
-            <label for="rg" class="form-label">RG</label>
-            <input type="text" class="form-control" id="rg" name="rg">
-        </div>
-
-        <div class="col-md-4">
-            <label for="genero" class="form-label">Gênero</label>
-            <select id="genero" name="genero" class="form-select">
-                <option value="" selected>Selecione...</option>
-                <option value="M">Masculino</option>
-                <option value="F">Feminino</option>
-                <option value="I">Indefinido</option>
-            </select>
-        </div>
-
-        <div class="col-md-4">
-            <label for="estadoCivil" class="form-label">Estado Civil</label>
-            <select id="estadoCivil" name="estadoCivil" class="form-select">
-                <option value="" selected>Selecione...</option>
-                <option value="C">Casado</option>
-                <option value="S">Solteiro</option>
-                <option value="D">Divorciado</option>
-                <option value="V">Viúvo</option>
-            </select>
-        </div>
-
-        <div class="col-md-4">
-            <label for="rg" class="form-label">peso</label>
-            <input type="text" class="form-control" id="rg" name="peso">
-        </div>
-
-        <div class="col-md-4">
-            <label for="rg" class="form-label">altura</label>
-            <input type="text" class="form-control" id="rg" name="altura">
         </div>
 
         <div class="col-12 text-end">
