@@ -4,23 +4,9 @@
 
 
 <?php
-// define que o caminho e igual a banco de dados
-$caminho = '../banco/pessoas.csv';
-//pessoas igual a dados cadastrados
-$pessoas = [];
-//verifica se existe o arquivo
-if (file_exists($caminho)) {
-    //abre o arquvo
-    $arquivo = fopen($caminho, 'r');
-    //organiza o arquivo
-    $cabecalho = fgetcsv($arquivo, 0, ';');
-    //percorre a linha
-    while (($linha = fgetcsv($arquivo, 0, ';')) !== false) {
-        $pessoas[] = $linha;
-    }
-    //fecha o arquivo
-    fclose($arquivo);
-}
+// Puxar do banco com select 
+// Criar uma array para usar no foreach
+
 
 ?>
 

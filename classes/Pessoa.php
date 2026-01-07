@@ -19,14 +19,11 @@ class Pessoa
     // -----------------------------
     // Dados pessoais básicos
     // -----------------------------
-    public $id;
+    
     public $nomeCompleto;
     public $dataNascimento;
     public $cpf; //FALTA
     public $email;
-
-
-
 
     public function salvar()
     {
@@ -49,16 +46,25 @@ class Pessoa
 
     }
     //
-    public function atualizar($pessoaID)
+    public function atualizar($id)
     {
+        
+        $pdo = PdoSingleton::getInstance();
 
-        //usar o PDO com está em cima
-        //a diferenca é que , vamos usar o UPDATE NO SQL
-        //UPDATE senai.pessoas
-        //    SET nome_completo='', email=NULL, data_nascimento=NULL, cpf='', user_id=NULL
-        //    WHERE id=0;
+        $sql = "UPDATE pessoas
+            SET nome_completo = :nome,
+                data_nascimento = :data_nascimento,
+                cpf = :cpf
+            WHERE id = :id";
 
-   
+        $stmt = $pdo->prepare($sql);
+
+        return $stmt->execute([
+            ':nome' => $this->nomeCompleto,
+            ':data_nascimento' => $this->dataNascimento,
+            ':cpf' => $this->cpf,
+            ':id' => $id
+        ]);
     }
 
 }
