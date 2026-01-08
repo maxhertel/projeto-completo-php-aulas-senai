@@ -1,6 +1,6 @@
 <?php include '../includes/header.php'; ?>
 
-<h2>Lista de Usuarios</h2>
+<h2>Lista de Pessoas</h2>
 
 
 <?php
@@ -10,8 +10,8 @@ use PdoSingleton;
 
 $pdo = PdoSingleton::getInstance();
 
-$sql = "SELECT id,username,password
-        FROM users
+$sql = "SELECT id,nome_completo,email,data_nascimento,cpf
+        FROM pessoas
         ORDER BY id ASC";
 
 $stmt = $pdo->prepare($sql);
@@ -28,7 +28,10 @@ $pessoas = $stmt->fetchAll(PDO::FETCH_NUM);
         <tr>
             <th scope="col">#</th>
             <th scope="col">nome</th>
-            <th scope="col">senha</th>
+            <th scope="col">email</th>
+            <th scope="col">data nascimento</th>
+            <th scope="col">cpf</th>
+            <th scope="col">Ação</th>
         </tr>
 
     <tbody>
