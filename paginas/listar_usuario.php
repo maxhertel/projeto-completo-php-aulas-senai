@@ -4,10 +4,22 @@
 
 
 <?php
-// Puxar do banco com select 
-// Criar uma array para usar no foreach
+require_once '../classes/Pdo.php';
 
+use PdoSingleton;
 
+$pdo = PdoSingleton::getInstance();
+
+$sql = "SELECT id,nome_completo,email,data_nascimento,cpf
+        FROM pessoas
+        ORDER BY id ASC";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+
+// transforma o resultado em array
+$pessoas = $stmt->fetchAll(PDO::FETCH_NUM);
+// ou FETCH_ASSOC (explico abaixo)
 ?>
 
 
@@ -16,25 +28,9 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">nome</th>
-            <th scope="col">data nascimento</th>
-            <th scope="col">genero</th>
-            <th scope="col">estadoCivil</th>
-            <th scope="col">cpf</th>
-            <th scope="col">rg</th>
             <th scope="col">email</th>
-            <th scope="col">telefone</th>
-            <th scope="col">celular</th>
-            <th scope="col">altura</th>
-            <th scope="col">peso</th>
-            <th scope="col">rua</th>
-            <th scope="col">numero rua</th>
-            <th scope="col">bairro</th>
-            <th scope="col">cidade</th>
-            <th scope="col">estado</th>
-            <th scope="col">cep</th>
-            <th scope="col">D</th>
-            <th scope="col">Date cadastro</th>
-            <th scope="col">Date atualização</th>
+            <th scope="col">data nascimento</th>
+            <th scope="col">cpf</th>
             <th scope="col">Ação</th>
         </tr>
 

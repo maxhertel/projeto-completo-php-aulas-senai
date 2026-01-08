@@ -13,4 +13,4 @@ include_once '../classes/Pessoa.php';
     $pessoa->salvar();
 
 
-header("Location: /paginas/cadastrar.php");
+header("Location: /paginas/cadastrar_pessoa.php");

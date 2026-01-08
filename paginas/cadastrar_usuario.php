@@ -7,30 +7,12 @@ if (isset($_SESSION['ok'])) {
 }
 
 
-// define que o caminho e igual a banco de dados
-$caminho = '../banco/estados.csv';
-//pessoas igual a dados cadastrados
-$estados = [];
-//verifica se existe o arquivo
-if (file_exists($caminho)) {
-    //abre o arquvo
-    $arquivo = fopen($caminho, 'r');
-    //organiza o arquivo
-    //percorre a linha
-    while (($linha = fgetcsv($arquivo, 0, ';')) !== false) {
-        
-        $estados[] = $linha;
-
-    }
-    //fecha o arquivo
-    fclose($arquivo);
-}
 ?>
 
 <div class="container mt-5">
-    <h2 class="mb-4 text-center">Cadastrar Pessoa</h2>
+    <h2 class="mb-4 text-center">Cadastrar Usuários</h2>
 
-    <form class="row g-4 p-4 bg-white shadow rounded" method="POST" action="/controllers/salvar.php">
+    <form class="row g-4 p-4 bg-white shadow rounded" method="POST" action="/controllers/salvar_pessoa.php">
 
         <div class="col-md-6">
             <label for="nomeCompleto" class="form-label">Nome Completo</label>
